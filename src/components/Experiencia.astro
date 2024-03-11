@@ -1,0 +1,158 @@
+---
+import { Image } from "astro:assets";
+import localImg from '../img/img_footer.png'
+
+const data = import.meta.env.EXPERIENCE;
+
+---
+
+<section id="experiencia">
+    <div class="center elemento">
+        <h2>Experiencia</h2>
+        <div class="card">
+            <div class="card-details">
+                <Image class="text-title" src={localImg}
+                alt="imagen_profile"
+                loading="eager"
+                width="300"
+                height="100"/>
+                <div class="flex">
+                <p class="text-body">Ingeniero de soporte técnico</p>
+                <p class="text-body year">{data}</p>
+                </div>
+                <span class="line"></span>
+                <h3>Tareas principales</h3>
+                <ul>
+                    <li>
+                        <p>Proporcionar soporte técnico a usuarios/as y solucionar problemas técnicos.<p>
+                        
+                    </li>
+                    <li>
+                        <p>Configurar y mantener sistemas informáticos y tecnológicos.<p>
+                            
+                    </li>
+                    <li>
+                        <p>Instalacion de equipo de redes y CCTV.<p></p>
+                    </li>
+                    <li>
+                        <p>Instalar y actualizar software y hardware.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<style>
+
+    .year{
+        font-style: italic;
+    }
+    .position{
+        display: flex;
+        justify-content: space-around;
+        margin-left: 55%;
+    }
+
+    .fix{
+        display: inline-block;
+        position: relative;
+    }
+
+    .flex{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    h3 {
+        font-family: "Inter", sans-serif;
+        color: #e5e0d8;
+        font-size: 1.6rem;
+        margin-bottom: 0px;
+    }
+
+
+    ul li{
+        list-style: square;
+        color: #e5e0d8;
+    }
+    ul li p{
+        font-style: italic;
+        font-family: "Inter", sans-serif;
+        color: #e5e0d8;
+        font-size: 1.2rem;
+    }
+    h2 {
+        text-align: left;
+        font-family: "Inter", sans-serif;
+        background: -webkit-linear-gradient(45deg, #2283b0, #00ff95 80%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 4rem;
+        margin-top: 0px;
+        word-wrap: inherit;
+    }
+
+    .center {
+        margin: 150px auto;
+    }
+
+    section {
+        background-color: #282a2a;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .line{
+        border: 1px solid #444646;
+        width: 1199px;
+    }
+
+    /* CARD */
+    .card {
+        width: 1200px;
+        height: 500px;
+        border-radius: 20px;
+        background: #242525;
+        padding: 1.8rem;
+        border: 2px solid #444646;
+        transition: 0.5s ease-out;
+        overflow: visible;
+    }
+
+    .card-details {
+        font-family: 'Inter', sans-serif;
+        color: black;
+        height: 100%;
+        gap: 0.5em;
+        display: grid;
+        place-content: start;
+    }
+
+    .text-body {
+        color: #e5e0d8;
+        font-size: 1.8rem;
+    }
+
+    /*Text*/
+    .text-title {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    /*Hover*/
+    .card:hover {
+        border-color: #008bf8;
+        box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .card:hover .card-button {
+        transform: translate(-50%, 50%);
+        opacity: 1;
+    }
+
+ 
+
+</style>

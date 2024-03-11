@@ -1,0 +1,50 @@
+---
+import { Icon } from "astro-icon/components";
+
+
+---
+
+<footer>
+    <div class="container">
+        <Icon class="sp-icon" name="linkedin" href="/" />
+        <Icon class="sp-icon" name="githubFooter" href="/" />
+    </div>
+    <span>Carlos Eduardo Cruz Reyes</span>
+</footer>
+
+<style>
+
+    /* Iocon */
+    [data-icon]{
+        height: 3rem;
+        width: 3rem;
+    }
+
+    footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+    }
+
+    .sp-icon{
+        margin-left: 1rem;
+    }
+
+    .container{
+        margin: 0 auto;
+        
+    }
+
+    .bg{
+        background-color: #242525;
+    }
+
+    
+    span{
+        font-family: 'Inter', sans-serif;
+        color: #797878;
+        font-weight: 700;
+        margin-top: 2rem;
+    }
+</style>

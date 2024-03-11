@@ -1,0 +1,134 @@
+---
+import { Image } from "astro:assets";
+import localImg from "../img/profile.png";
+import profile from '../svg/profile.svg'
+---
+
+<main id="about" class="grid">
+    <div class="cell">
+        <h1>Carlos Eduardo Cruz Reyes</h1>
+        <h2>Ingeniero en desarrollo de software</h2>
+        <p class="description">Diseñar sitios elegantes para personas ambiciosas</p>
+            <a class="btn btn-3" href="/">Descargar CV</a>
+        
+    </div>
+    <div class="cell2">
+        <Image
+        class="img"
+        src={profile}
+        alt="imagen_profile"
+        loading="eager"
+        width="500"
+        height="500"
+    />
+    </div>
+</main>
+
+<style>
+
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        background-color: #242525;
+        height: max-content;
+        margin-top: 61px;
+        min-height: 100%;
+    }
+
+    .cell{
+        margin: 0 auto;
+        text-align: left;
+        margin-top: 250px;
+    }
+
+    .cell2{
+        text-align: center;
+        margin-top: 150px;
+    }
+
+    .container {
+        margin: 150px auto;
+        margin-bottom: 40px;
+        
+    }
+
+    h1,
+    h2 {
+        font-family: "Inter", sans-serif;
+        color: #e5e0d8;
+    }
+
+    h1 {
+        font-weight: 600;
+        font-size: 4rem;
+        
+    }
+
+    h2 {
+        font-weight: 300;
+        font-size: 2rem;
+       
+    }
+
+    .description {
+        text-align: left;
+        font-family: "Inter", sans-serif;
+        background: -webkit-linear-gradient(45deg, #2283B0, #00ff95 80%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 2.2rem;
+        font-weight: 600;
+
+        /* Animacion */
+        animation: typing 4s steps(49) 1s 1 normal both, blink 1s steps(1) infinite;
+        border-right: .10em solid #18BDEC;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    @keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+   
+
+    .img {
+        margin-bottom: 50px;
+    }
+
+    .btn{
+        display: block;
+        padding: 1rem;
+        border-radius: 2rem;
+        font-family: 'Inter', sans-serif;
+        font-size: 1.3rem;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+        background-size: 200% auto;
+        width: 50%;  
+        text-decoration: none;     
+    }
+
+    .btn:hover {
+  background-position: right center; /* change the direction of the change here */
+}
+    .btn-3 {
+  background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+}
+</style>

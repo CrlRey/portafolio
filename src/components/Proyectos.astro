@@ -1,0 +1,135 @@
+---
+import { Image } from "astro:assets";
+import ImgPrj1 from '../img/imgProjects/pg1.png'
+import { Icon } from 'astro-icon/components'
+---
+
+<section id="proyectos">
+    <div class="center elemento">
+        <h2>Proyectos</h2>
+        
+        <div class="grid">
+            <div>
+            <p class="type">Frontend</p>
+            <h3>Dream Guitar</h3>
+            <p class="description">Proyecto de tienda de guitarra. Visualiza como se podria ver una tienda de guitarra con secciones como un blog, catalogo y más.</p>
+            <div class="d-b">
+                <p class="tecno">Astro</p>
+                <p class="tecno">Strapi</p>
+                <p class="tecno">CSS</p>
+                <p class="tecno">PostgreSQL</p>
+            </div>
+        </div>
+            <Image class="border-img" src={ImgPrj1} alt="Proyect1" width="700" height="360"loading="eager"/>
+            
+        </div>
+    </div>
+    <script>
+        window.addEventListener('scroll', () => {
+        const elementos = document.querySelectorAll('.elemento');
+        
+        elementos.forEach(elemento => {
+          if (isElementInViewport(elemento)) {
+            elemento.classList.add('mostrar');
+          }
+        });
+      });
+    
+      function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+        return (
+        rect.top <= windowHeight && rect.bottom >= 0
+        );
+      }
+    </script>
+</section>
+
+<style>
+    
+    
+    .tecno:hover{
+        opacity: 0.4;
+        transition: 0.2s;
+    }
+    .icon-st{
+        margin-top: 16px;
+    }
+
+    .d-b{
+        display: flex;
+        background-color: #282A2A;
+        justify-content: space-evenly;
+        margin-right: 50px;
+        border-radius: 20px;
+        box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .border-img{
+        border-radius: 10px;
+        box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+    }
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    section {
+        background-color: #242525;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .center {
+        margin: 150px auto;
+        text-align: left;
+        width: 1260px;
+    }
+
+    h2 {
+        text-align: left;
+        font-family: "Inter", sans-serif;
+        background: -webkit-linear-gradient(45deg, #2283b0, #00ff95 80%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 4rem;
+        margin-top: 0px;
+        word-wrap: inherit;
+    }
+
+    h3{
+        font-family: "Inter", sans-serif; 
+        background: -webkit-linear-gradient(45deg, #2283b0, #00ff95 80%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 3rem;
+        margin-top: 0px;
+        margin-bottom: 15px;
+        text-align: start;
+    }
+    p{
+        font-family: "Inter", sans-serif; 
+        color: #e5e0d8; 
+    }
+
+    .type{
+        font-family: "Inter", sans-serif; 
+        margin-top: 0px;
+        color: #e5e0d8;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    .description{
+        color: #e5e0d8;
+        font-size: 1.3rem;
+        text-align: justify;
+        margin-right: 50px;
+
+    }
+
+    /* Card */
+    
+
+</style>

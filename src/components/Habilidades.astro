@@ -1,0 +1,246 @@
+---
+import { Icon } from 'astro-icon/components'
+
+---
+
+<section id="habilidades" >
+    
+    <div class="container elemento">
+        <h2>Habilidades</h2>
+        <p class="description">Mis conocimientos en diversos lenguajes de programación, frameworks y bibliotecas ampliamente utilizados en el desarrollo web y de software. Además, cuento con habilidades en desarrollo de aplicaciones móviles utilizando tecnologías modernas, bases de datos, sistemas de control de versiones y metodologías ágiles.</p>
+        <div class="grid">
+                <div class="item">
+                    <Icon name="html" />
+                    <div class="ctn">
+                        <p class="title">HTML</p>
+                        <p class="subtext">lenguaje de etiquetas de hipertexto</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="css" />
+                    <div>
+                        <p class="title">CSS</p>
+                        <p class="subtext">Hojas de estilo en cascada</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="js" />
+                    <div>
+                        <p class="title">JavaScript</p>
+                        <p class="subtext">lenguaje de programación compilado</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="react" />
+                    <div>
+                        <p class="title">React</p>
+                        <p class="subtext">Biblioteca para interfaces de usuario web</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="vite" />
+                    <div class="ctn">
+                        <p class="title">Vite</p>
+                        <p class="subtext">Herramienta de construcción web rápida</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="astro" />
+                    <div>
+                        <p class="title">Astro</p>
+                        <p class="subtext">Creador de sitios web estáticos y dinámicos</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="next" />
+                    <div class="ctn">
+                        <p class="title">Next.js</p>
+                        <p class="subtext">Framework React para aplicaciones web</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="remix" />
+                    <div>
+                        <p class="title">Remix run</p>
+                        <p class="subtext">Plataforma para aplicaciones web modernas</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="strapi" />
+                    <div>
+                        <p class="title">Strapi</p>
+                        <p class="subtext">CMS de código abierto para API y contenido</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="sql" />
+                    <div>
+                        <p class="title">PostgreSQL</p>
+                        <p class="subtext">Sistema de gestión de bases de datos relacional</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="bootstrap" />
+                    <div>
+                        <p class="title">Bootstrap</p>
+                        <p class="subtext">Framework front-end para diseño web responsivo</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="tailwind" />
+                    <div class="ctn">
+                        <p class="title">Tailwind</p>
+                        <p class="subtext">Framework CSS utilitario para interfaces web</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="py" />
+                    <div>
+                        <p class="title">Python</p>
+                        <p class="subtext">Lenguaje de programación versátil</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="mongo" />
+                    <div>
+                        <p class="title">Mongo DB</p>
+                        <p class="subtext">Base de datos NoSQL orientada a documentos</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="firebase" />
+                    <div>
+                        <p class="title">Firebase</p>
+                        <p class="subtext">Plataforma desarrollo de aplicaciones móviles y web</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="android" />
+                    <div>
+                        <p class="title">Android Studio</p>
+                        <p class="subtext">IDE para aplicaciones Android</p>
+                    </div>
+                </div >
+                <div class="item">
+                    <Icon name="flutter" />
+                    <div>
+                        <p class="title">Flutter</p>
+                        <p class="subtext">SDK para crear aplicaciones nativas multiplataforma</p>
+                    </div>
+                </div >
+        </div>
+    </div>
+</section>
+
+<script>
+    function checkElementsInView() {
+    const elementos = document.querySelectorAll('.elemento');
+    
+    elementos.forEach(elemento => {
+        if (isElementInViewport(elemento)) {
+            elemento.classList.add('mostrar');
+        }else {
+            elemento.classList.remove('mostrar'); // Eliminar la clase si el elemento ya no está en el viewport
+        }
+    });
+}
+
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+    return (
+    rect.top <= windowHeight && rect.bottom >= 0
+    );
+  }
+
+  window.addEventListener('load', checkElementsInView);
+  window.addEventListener('scroll', checkElementsInView);
+</script>
+
+<style>
+    [data-icon]{
+        height: 3rem;
+        width: 3rem;
+        margin: 30px;
+    }
+
+    .ctn{
+        margin-right: 20px;
+    }
+
+    .subtext{
+    font-size: 0.9rem; /* Ajusta el tamaño del subtexto */
+    color: #888; /* Color del subtexto */
+    margin-left: 10px; 
+    margin-top: 5px;
+    }
+
+    .title{
+        font-weight: 600;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        display: block;
+    }
+
+    .item{
+        display: flex;
+        background-color: #242525;
+        border: 1px solid #444646;
+        border-radius: 10px;
+    }
+
+    .description{
+        margin-top: 10px;
+        margin-bottom: 20px;
+        text-align: justify;
+    }
+    section{
+        background-color: #282A2A;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    h2{
+        font-family: 'Inter', sans-serif;
+        text-align: left;
+        background: -webkit-linear-gradient(45deg, #2283b0, #00ff95 80%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 4rem;
+    }
+
+    .container{
+        margin: 130px auto;
+        width: 1260px;
+       
+    }
+
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px 20px;
+        
+    }
+    p{
+        font-family: 'Inter', sans-serif;
+        font-size: 1.3rem;
+        color: #E5E0D8;
+        
+        
+    }
+
+    .elemento {
+    opacity: 0; /* Inicialmente invisibles */
+    transform: translateY(20px); /* Desplazados hacia abajo */
+    transition: opacity 0.5s, transform 0.5s; /* Transición suave */
+}
+
+/* Estilo para mostrar los elementos al hacer scroll */
+.elemento.mostrar {
+    opacity: 1; /* Mostrar elemento */
+    transform: translateY(0); /* Sin desplazamiento */
+}
+
+</style>
