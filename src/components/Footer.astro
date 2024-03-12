@@ -1,15 +1,18 @@
 ---
 import { Icon } from "astro-icon/components";
+import Image from "astro/components/Image.astro";
+import gh from "../icon/githubFooter.svg";
+import arr from "../icon/arrow.svg";
 
 
 ---
 
 <footer>
     <div class="container">
-        <Icon class="sp-icon" name="linkedin" href="/" />
-        <Icon class="sp-icon" name="githubFooter" href="/" />
+        <a href={import.meta.env.LINKEDLN}><Icon name="linkedin" title="github" /></a>
+        <a href={import.meta.env.GITHUB}><Icon name="githubFooter" title="ver" /></a>
     </div>
-    <span>Carlos Eduardo Cruz Reyes</span>
+    <span>Copyringht © - 2024 | Carlos Eduardo Cruz Reyes </span>
 </footer>
 
 <style>
