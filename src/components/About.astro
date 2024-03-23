@@ -1,66 +1,46 @@
 ---
 import { Image } from "astro:assets";
 import localImg from "../img/profile.png";
-import profile from '../svg/profile.svg'
+import profile from "../svg/profile.svg";
+import CV from '../resources/CARLOS_EDUARDO_CRUZ_REYES_CV.pdf'
 ---
 
-<main id="about" class="grid">
-    <div class="cell">
-        <h1>Carlos Eduardo Cruz Reyes</h1>
-        <h2>Ingeniero en desarrollo de software</h2>
-        <p class="description">Diseñar sitios elegantes para personas ambiciosas</p>
-            <a class="btn btn-3" href="/">Descargar CV</a>
+<main id="about">
+    <div class="container">
         
-    </div>
-    <div class="cell2">
-        <Image
-        class="img"
-        src={profile}
-        alt="imagen_profile"
-        loading="eager"
-        width="500"
-        height="500"
-    />
+            <h1>Carlos Eduardo Cruz Reyes</h1>
+            <h2>Ingeniero en desarrollo de software</h2>
+            <p class="description">Diseñar sitios elegantes para personas ambiciosas</p>
+            <a class="btn btn-3" href={CV} download="CARLOS_EDUARDO_CRUZ_REYES_CV.pdf">Descargar CV</a>
+        
     </div>
 </main>
 
 <style>
-
-    .grid{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        background-color: #242525;
-        height: max-content;
-        margin-top: 61px;
-        min-height: 100%;
-    }
-
-    .cell{
+    .container{
         margin: 0 auto;
-        text-align: left;
-        margin-top: 250px;
-    }
-
-    .cell2{
+        width: 1200px;
         text-align: center;
-        margin-top: 150px;
+        height: 500px;
+        display: flex; /* Utilizamos flexbox */
+        flex-direction: column; /* Dirección de los items en columna */
+        justify-content: center; /* Centrado vertical */
+        align-items: center; /* Centrado horizontal */
     }
 
-    .container {
-        margin: 150px auto;
-        margin-bottom: 40px;
-        
+    .main{
+        margin-top: 70px;
+        margin-bottom: 70px;
     }
 
-    h1,
-    h2 {
-        font-family: "Inter", sans-serif;
+    h1, h2 {
+        font-family: 'Inter', sans-serif;
         color: #e5e0d8;
     }
 
     h1 {
         font-weight: 600;
-        font-size: 4rem;
+        font-size: 3rem;
         
     }
 
@@ -71,49 +51,24 @@ import profile from '../svg/profile.svg'
     }
 
     .description {
-        text-align: left;
+        text-align: center;
         font-family: "Inter", sans-serif;
         background: -webkit-linear-gradient(45deg, #0057F9, #25C2C3 80%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-size: 2.2rem;
+        font-size: 2rem;
         font-weight: 600;
-
-        /* Animacion */
-        animation: typing 4s steps(49) 1s 1 normal both, blink 1s steps(1) infinite;
-        border-right: .10em solid #18BDEC;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
-    @keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-   
-
-    .img {
-        margin-bottom: 50px;
+       
     }
 
     .btn{
-        display: block;
+        
         padding: 1rem;
         border-radius: .5rem;
         font-family: 'Inter', sans-serif;
         font-size: 1.3rem;
         text-align: center;
+        align-items: center;
         font-weight: bold;
         text-transform: uppercase;
         transition: 0.5s;
@@ -121,7 +76,7 @@ import profile from '../svg/profile.svg'
         color: white;
         /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
         background-size: 200% auto;
-        width: 50%;  
+        width: 20%;  
         text-decoration: none;     
     }
 
@@ -131,4 +86,43 @@ import profile from '../svg/profile.svg'
     .btn-3 {
   background-image: linear-gradient(to right, #0057F9 0%, #25C2C3 51%, #0057F9 100%);
 }
+
+@media (max-width: 1200px) {
+    .container {
+        width: auto; /* Usa todo el ancho disponible */
+        padding: 0 10px; /* Añade un poco de padding para que no toque los bordes */
+    }
+
+    h1 {
+        font-size: 2.5rem; /* Reduce el tamaño para pantallas pequeñas */
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        width: 30%; /* Aumenta el ancho del botón para dispositivos más pequeños */
+    }
+}
+
+@media (max-width: 768px) {
+
+    .container{
+        margin-top: 40px;
+    }
+
+    h1 {
+        font-size: 2rem; /* Aún más pequeño para tablets y móviles */
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        width: 80%; /* Hacer el botón más ancho en dispositivos muy pequeños */
+    }
+}
+
 </style>

@@ -5,8 +5,8 @@ import Experiencia from "../components/Experiencia.astro";
 import Proyectos from '../components/Proyectos.astro';
 import Habilidades from '../components/Habilidades.astro';
 import Footer from '../components/Footer.astro';
-import ViewTransitions from "astro/components/ViewTransitions.astro";
 const { title, description } = Astro.props;
+
 
 
 
@@ -39,6 +39,33 @@ const { title, description } = Astro.props;
         <Proyectos />
         <Habilidades />
         <Footer />
+
+        <script>
+          function checkElementsInView() {
+          const elementos = document.querySelectorAll('.elemento');
+          
+          elementos.forEach(elemento => {
+              if (isElementInViewport(elemento)) {
+                  elemento.classList.add('mostrar');
+              }else {
+                  elemento.classList.remove('mostrar'); // Eliminar la clase si el elemento ya no está en el viewport
+              }
+          });
+      }
+      
+        function isElementInViewport(el) {
+          const rect = el.getBoundingClientRect();
+          const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+          return (
+          rect.top <= windowHeight && rect.bottom >= 0
+          );
+        }
+      
+        window.addEventListener('load', checkElementsInView);
+        window.addEventListener('scroll', checkElementsInView);
+      </script>
+
+
     </body>
 </html>
 
@@ -56,15 +83,15 @@ const { title, description } = Astro.props;
       border-radius: 4px;
     }
 
-  .elemento {
+    .elemento {
     opacity: 0; /* Inicialmente invisibles */
     transform: translateY(20px); /* Desplazados hacia abajo */
     transition: opacity 0.5s, transform 0.5s; /* Transición suave */
-  }
+    }
 
   /* Estilo para mostrar los elementos al hacer scroll */
-  .elemento.mostrar {
+    .elemento.mostrar {
     opacity: 1; /* Mostrar elemento */
     transform: translateY(0); /* Sin desplazamiento */
-  }
+    }
 </style>

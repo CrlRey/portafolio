@@ -8,36 +8,57 @@ const data = import.meta.env.EXPERIENCE;
 
 <section id="experiencia">
     <div class="center elemento">
-        <h2>Experiencia</h2>
+        <div class="title">
+            <h2>Experiencia</h2>
+        </div>
         <div class="card">
             <div class="card-details">
-                <Image class="text-title" src={localImg}
+                <div  class="img">
+                    <Image src={localImg}
                 alt="imagen_profile"
                 loading="eager"
                 width="300"
                 height="100"/>
+                </div>
                 <div class="flex">
                 <p class="text-body">Ingeniero de soporte técnico</p>
                 <p class="text-body year">{data}</p>
                 </div>
                 <span class="line"></span>
                 <h3>Tareas principales</h3>
-                <ul>
-                    <li>
-                        <p>Proporcionar soporte técnico a usuarios/as y solucionar problemas técnicos.<p>
-                        
-                    </li>
-                    <li>
-                        <p>Configurar y mantener sistemas informáticos y tecnológicos.<p>
+                <div class="grid">
+                    <ul>
+                        <li>
+                            <p>Proporcionar soporte técnico a usuarios y usuarias y solucionar problemas de TI.</p>
+                        </li>
+                        <li>
+                            <p>Configurar y dar mantenimiento a equipos informáticos.</p>
+                                
+                        </li>
+                        <li>
+                            <p>Instalación de equipo de redes y CCTV.</p>
+                        </li>
+                        <li>
+                            <p>Instalar y actualizar software y hardware.</p>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <p>Apoyo en la instalación de cableado estructurado.</p>
                             
-                    </li>
-                    <li>
-                        <p>Instalacion de equipo de redes y CCTV.<p></p>
-                    </li>
-                    <li>
-                        <p>Instalar y actualizar software y hardware.</p>
-                    </li>
-                </ul>
+                        </li>
+                        <li>
+                            <p>Instalación de software antivirus Acronis.</p>
+                                
+                        </li>
+                        <li>
+                            <p>Brindar soporte en equipos de fotocopiado.</p>
+                        </li>
+                        <li>
+                            <p>Administración de cuentas con Office 365.</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -45,6 +66,23 @@ const data = import.meta.env.EXPERIENCE;
 </section>
 
 <style>
+
+    
+
+.center {
+        
+        display: flex; /* Utilizamos flexbox */
+        flex-direction: column; /* Dirección de los items en columna */
+        justify-content: center; /* Centrado vertical */
+        align-items: center;
+        padding: 0 20px;
+        
+    }
+
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 
     .year{
         font-style: italic;
@@ -55,16 +93,18 @@ const data = import.meta.env.EXPERIENCE;
         margin-left: 55%;
     }
 
-    .fix{
-        display: inline-block;
-        position: relative;
+    .img{
+        max-width: 100%; /* Asegura que la imagen no sobrepase su contenedor */
+        height: auto; /* Permite que la altura se ajuste automáticamente */
     }
+    
 
     .flex{
         display: flex;
         width: 100%;
         justify-content: space-between;
     }
+    
     h3 {
         font-family: "Inter", sans-serif;
         color: #e5e0d8;
@@ -90,19 +130,15 @@ const data = import.meta.env.EXPERIENCE;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-size: 4rem;
-        margin-top: 0px;
+        margin-top: 100px;
         word-wrap: inherit;
     }
 
-    .center {
-        margin: 150px auto;
-    }
+    
 
     section {
         background-color: #282a2a;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        width: 100%;
     }
 
     .line{
@@ -120,6 +156,7 @@ const data = import.meta.env.EXPERIENCE;
         border: 2px solid #444646;
         transition: 0.5s ease-out;
         overflow: visible;
+        margin-bottom: 100px;
     }
 
     .card-details {
@@ -137,10 +174,7 @@ const data = import.meta.env.EXPERIENCE;
     }
 
     /*Text*/
-    .text-title {
-        font-size: 1.5em;
-        font-weight: bold;
-    }
+    
 
     /*Hover*/
     .card:hover {
@@ -153,6 +187,83 @@ const data = import.meta.env.EXPERIENCE;
         opacity: 1;
     }
 
- 
+    /* Tablet */
+    @media (max-width: 1200px) {
+        .center{
+            padding: 0 20px;
+            width: auto;
+        }
 
-</style>
+        h2{
+            text-align: center;
+            
+        }
+
+        .card {
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-details{
+            width: auto;
+        }
+
+        .line{
+            width: auto;
+        }
+    }
+/* Celular */
+    @media (max-width: 768px) {
+        .center{
+            width: auto;
+            padding: 0 20px;
+        }
+
+        h2{
+            text-align: center;
+            
+        }
+
+        .card {
+            width: auto;
+            height: auto;
+        }
+
+        .line{
+            width: 100%;
+        }
+
+        .img{
+            width: 100%;
+            text-align: center;
+        }
+
+        .card-details{
+            height: auto;
+        }
+
+        .flex{
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .grid{
+            flex-direction: column;
+            margin: 0;
+        }
+
+        h3{
+            text-align: center;
+        }
+   
+    }
+
+</style>    

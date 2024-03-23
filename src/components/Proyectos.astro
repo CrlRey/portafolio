@@ -1,124 +1,146 @@
 ---
 import { Image } from "astro:assets";
-import ImgPrj1 from '../img/imgProjects/pg1.png'
-import { Icon } from 'astro-icon/components'
+import { Picture } from 'astro:assets';
+import ImgPrj1 from "../img/gastos.png";
+import ImgPrj2 from "../img/esencia-verde.png";
+import { Icon } from "astro-icon/components";
 ---
 
-<section id="proyectos">
-    <div class="center elemento">
+<section id="proyectos" class="elemento">
+    <div class="title">
         <h2>Proyectos</h2>
-        
-        <div class="grid">
-        <div>
+    </div>
+    <div class="center">
+        <div class="info">
             <p class="type">Frontend</p>
-            <h3>Dream Guitar</h3>
-            <p class="description">Proyecto de tienda de guitarra. Visualiza como se podria ver una tienda de guitarra con secciones como un blog, catalogo y más.</p>
+            <h3>Planificador de gastos</h3>
+            <p class="description" id="miParrafo">
+                Proyecto de control de gastos, visualiza como puedes tener un
+                control de tus gastos segmentados en diferentes categorias.
+            </p>
             <div class="d-b">
-                <p class="tecno">Astro</p>
-                <p class="tecno">Strapi</p>
-                <p class="tecno">CSS</p>
-                <p class="tecno">PostgreSQL</p>
+                <p class="tecno">React</p>
+                <p class="tecno">Vite</p>
+                <p class="tecno">JS</p>
             </div>
             <div class="flex-btn">
-                <a href="/" class="btn btn-ver enlace">
-                    <Icon name="arrow"  />
+                <a
+                    href={import.meta.env.PROJECT1}
+                    target="_blank"
+                    class="btn btn-ver enlace"
+                >
+                    <Icon name="arrow" />
                     <span>Ver</span>
                 </a>
-                <a href="/" class="btn btn-gh enlace"> 
-                    <Icon name="githubFooter"  />
+                <a
+                    href={import.meta.env.GH1}
+                    target="_blank"
+                    class="btn btn-gh enlace"
+                >
+                    <Icon name="githubFooter" />
                     <span>GitHub</span>
                 </a>
             </div>
         </div>
-        <div>
-            <Image class="border-img" src={ImgPrj1} alt="Proyect1" width="700" height="360"loading="eager"/>
-            
-        </div>
+        <div class="img-ctn">
+            <Picture
+            class="border-img"
+            src={ImgPrj1}
+            alt="Proyect1"
+            width="700"
+            height="360"
+            loading="eager"
+        />
+         </div>
     </div>
-    <script>
-        window.addEventListener('scroll', () => {
-        const elementos = document.querySelectorAll('.elemento');
-        
-        elementos.forEach(elemento => {
-          if (isElementInViewport(elemento)) {
-            elemento.classList.add('mostrar');
-          }
-        });
-      });
-    
-      function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
-        return (
-        rect.top <= windowHeight && rect.bottom >= 0
-        );
-      }
-    </script>
+    <!-- Esencia verde -->
+    <div class="center">
+        <div class="info">
+            <p class="type">Frontend - CMS Headless</p>
+            <h3>Tienda virtual</h3>
+            <p class="description" id="miParrafo">
+                Una tienda virtual especializada en ventad de flores, visualiza el frontend y la conexión a una base de datos
+            </p>
+            <div class="d-b">
+                <p class="tecno">Astro</p>
+                <p class="tecno">Strapi</p>
+                <p class="tecno">PostGreSQL</p>
+            </div>
+            <div class="flex-btn">
+                <a
+                    href={import.meta.env.PROJECT2}
+                    target="_blank"
+                    class="btn btn-ver enlace"
+                >
+                    <Icon name="arrow" />
+                    <span>Ver</span>
+                </a>
+                <a
+                    href={import.meta.env.GH2}
+                    target="_blank"
+                    class="btn btn-gh enlace"
+                >
+                    <Icon name="githubFooter" />
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+        <div class="img-ctn">
+            <Picture
+            class="border-img"
+            src={ImgPrj2}
+            alt="Proyect1"
+            width="700"
+            height="360"
+            loading="eager"
+        />
+         </div>
+    </div>
 </section>
 
 <style>
-     [data-icon]{
+    [data-icon] {
         height: 1.5rem;
         width: 1.5rem;
         margin-right: 1rem;
-        align-items: start  ;
-    }
-    
-    .tecno:hover{
-        opacity: 0.4;
-        transition: 0.2s;
-    }
-
-
-    .d-b{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        background-color: #282A2A;
-        text-align: center;
-        margin-right: 50px;
-        border-radius: .5rem;
-        box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
-        margin-bottom: 1.8rem;
-    }
-
-    
-
-    .border-img{
-        border-radius: 10px;
-        box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
-    }
-    .grid{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    section {
-        background-color: #242525;
-        display: flex;
-        flex-direction: column;
         align-items: start;
     }
 
     .center {
-        margin: 150px auto;
-        text-align: left;
-        width: 1260px;
+        display: flex; /* Utilizamos flexbox */
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        margin: 50px auto;
+        
     }
 
-    h2 {
-        text-align: left;
+    .info{
+        width: 30%;
+    }
+
+    .title {
+       text-align: center;
+       font-family: "Inter", sans-serif;
+       background: -webkit-linear-gradient(45deg, #0057f9, #00ff95 80%);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+       font-size: 3rem;
+       word-wrap: inherit;
+       
+   }
+
+   .type {
         font-family: "Inter", sans-serif;
-        background: -webkit-linear-gradient(45deg, #0057F9, #00ff95 80%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-size: 4rem;
         margin-top: 0px;
-        word-wrap: inherit;
+        color: #e5e0d8;
+        font-size: 1.4rem;
+        text-transform: uppercase;
     }
 
-    h3{
-        font-family: "Inter", sans-serif; 
-        background: -webkit-linear-gradient(45deg, #0057F9, #00ff95 80%);
+    h3 {
+        font-family: "Inter", sans-serif;
+        background: -webkit-linear-gradient(45deg, #0057f9, #00ff95 80%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-size: 3rem;
@@ -126,42 +148,53 @@ import { Icon } from 'astro-icon/components'
         margin-bottom: 15px;
         text-align: start;
     }
-    p{
-        font-family: "Inter", sans-serif; 
-        color: #e5e0d8; 
-    }
 
-    .type{
-        font-family: "Inter", sans-serif; 
-        margin-top: 0px;
-        color: #e5e0d8;
-        font-size: 1.4rem;
-        text-transform: uppercase;
-    }
-
-    .description{
+    .description {
+        text-align: justify;
+        font-family: "Inter", sans-serif;
         color: #e5e0d8;
         font-size: 1.3rem;
-        text-align: justify;
-        margin-right: 50px;
-
+        width: auto;
+        overflow-wrap: break-word;
     }
 
-    .flex-btn{
+    .d-b {
         display: flex;
-    
+        background-color: #282a2a;
+        text-align: center;
+        justify-content: space-around;
+        margin-right: 50px;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+        margin-bottom: 1.8rem;
+        width: 100%;
     }
 
-    a{
-        align-items: center;
-        justify-content: start;
+    .d-b > p {
+        font-family: 'Inter', sans-serif;
+        color: #e5e0d8;
     }
 
-    .btn{
+    .d-b > p:hover{
+        opacity: 0.4;
+        transition: 0.2s;
+    }
+
+    .flex-btn {
+        display: flex;
+    }
+
+    .border-img {
+        border-radius: 10px;
+        box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+        margin-left: 50px;
+    }
+
+    .btn {
         display: block;
         padding: 1rem;
-        border-radius: .5rem;
-        font-family: 'Inter', sans-serif;
+        border-radius: 0.5rem;
+        font-family: "Inter", sans-serif;
         font-size: 1.3rem;
         font-weight: bold;
         transition: 0.5s;
@@ -169,13 +202,12 @@ import { Icon } from 'astro-icon/components'
         color: white;
         /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
         background-size: 200% auto;
-        width: 38%;  
-        margin-right: 1rem;
-        text-decoration: none;   
-        box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);  
+        width: 100%;
+        text-decoration: none;
+        box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
     }
 
-    .enlace{
+    .enlace {
         display: flex;
         align-items: center;
         text-decoration: none;
@@ -184,17 +216,92 @@ import { Icon } from 'astro-icon/components'
 
     /* Boton */
     .btn:hover {
-  background-position: right center; /* change the direction of the change here */
-}
+        background-position: right center; /* change the direction of the change here */
+    }
     .btn-ver {
-  background-image: linear-gradient(to right, #0057F9 0%, #8fd3f4 51%, #0057F9 100%);
-}
+        background-image: linear-gradient(
+            to right,
+            #0057f9 0%,
+            #8fd3f4 51%,
+            #0057f9 100%
+        );
+        margin-right: 30px;
+    }
     .btn-gh {
-  background-image: linear-gradient(to right, #000000 0%, #3C3C3C  51%, #000000  100%);
-  
+        background-image: linear-gradient(
+            to right,
+            #000000 0%,
+            #3c3c3c 51%,
+            #000000 100%
+        );
     }
 
-    /* Card */
-    
+    @media (max-width: 1200px) {
+        .center {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info{
+        width: auto;
+    }
+
+    .border-img {
+        margin-left: 0; /* Eliminamos el margen izquierdo en pantallas pequeñas */
+        margin-top: 20px; /* Agregamos un margen superior para separar la imagen del texto */
+        width: auto;
+        height: 200px;
+    }
+
+    .img-ctn{
+       
+        padding: 0 20px;
+    }
+
+    .title {
+        font-size: 2rem; /* Reducimos el tamaño del título en pantallas pequeñas */
+    }
+    #miParrafo br {
+        display: none; /* Ocultar el elemento <br> en pantallas pequeñas */
+    }
+    }
+
+    @media (max-width: 768px) {
+        .center {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .border-img {
+       /* Eliminamos el margen izquierdo en pantallas pequeñas */
+        margin-top: 20px; /* Agregamos un margen superior para separar la imagen del texto */
+        width: 100%;
+        height: 200px;
+    }
+
+    .img-ctn{
+       
+        padding: 0 20px;
+    }
+
+    .title {
+        font-size: 2rem; /* Reducimos el tamaño del título en pantallas pequeñas */
+    }
+
+    #miParrafo br {
+        display: none; /* Ocultar el elemento <br> en pantallas pequeñas */
+    }
+
+    .d-b{
+        width: 100%;
+    }
+
+    .description{
+        text-align: justify;
+    }
+
+    }
+
+
 
 </style>

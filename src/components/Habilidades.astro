@@ -33,15 +33,8 @@ import { Icon } from 'astro-icon/components'
                 <div class="item">
                     <Icon name="react" />
                     <div>
-                        <p class="title">React</p>
+                        <p class="title">React + Vite</p>
                         <p class="subtext">Biblioteca para interfaces de usuario web</p>
-                    </div>
-                </div >
-                <div class="item">
-                    <Icon name="vite" />
-                    <div class="ctn">
-                        <p class="title">Vite</p>
-                        <p class="subtext">Herramienta de construcción web rápida</p>
                     </div>
                 </div >
                 <div class="item">
@@ -69,14 +62,14 @@ import { Icon } from 'astro-icon/components'
                     <Icon name="sql" />
                     <div>
                         <p class="title">PostgreSQL</p>
-                        <p class="subtext">Sistema de gestión de bases de datos relacional</p>
+                        <p class="subtext">Base de datos relacional</p>
                     </div>
                 </div >
                 <div class="item">
                     <Icon name="bootstrap" />
                     <div>
                         <p class="title">Bootstrap</p>
-                        <p class="subtext">Framework front-end para diseño web responsivo</p>
+                        <p class="subtext">Framework para diseño web responsivo</p>
                     </div>
                 </div >
                 <div class="item">
@@ -105,30 +98,7 @@ import { Icon } from 'astro-icon/components'
     </div>
 </section>
 
-<script>
-    function checkElementsInView() {
-    const elementos = document.querySelectorAll('.elemento');
-    
-    elementos.forEach(elemento => {
-        if (isElementInViewport(elemento)) {
-            elemento.classList.add('mostrar');
-        }else {
-            elemento.classList.remove('mostrar'); // Eliminar la clase si el elemento ya no está en el viewport
-        }
-    });
-}
 
-  function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
-    return (
-    rect.top <= windowHeight && rect.bottom >= 0
-    );
-  }
-
-  window.addEventListener('load', checkElementsInView);
-  window.addEventListener('scroll', checkElementsInView);
-</script>
 
 <style>
     [data-icon]{
@@ -170,9 +140,6 @@ import { Icon } from 'astro-icon/components'
     }
     section{
         background-color: #282A2A;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
     }
 
     h2{
@@ -185,8 +152,12 @@ import { Icon } from 'astro-icon/components'
     }
 
     .container{
-        margin: 130px auto;
-        width: 1260px;
+        display: flex; /* Utilizamos flexbox */
+        flex-direction: column; /* Dirección de los items en columna */
+        justify-content: center; /* Centrado vertical */
+        align-items: center;
+        
+        
        
     }
 
@@ -195,7 +166,7 @@ import { Icon } from 'astro-icon/components'
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 20px 20px;
         margin-top: 3rem;
-        
+        margin-bottom: 5rem;
     }
     p{
         font-family: 'Inter', sans-serif;
@@ -205,16 +176,16 @@ import { Icon } from 'astro-icon/components'
         
     }
 
-    .elemento {
-    opacity: 0; /* Inicialmente invisibles */
-    transform: translateY(20px); /* Desplazados hacia abajo */
-    transition: opacity 0.5s, transform 0.5s; /* Transición suave */
-}
+    @media (max-width: 1200px) {
+        .grid {
+        grid-template-columns: repeat(2, 1fr); /* Cambiar a dos columnas en pantallas más pequeñas */
+    }
+    }
 
-/* Estilo para mostrar los elementos al hacer scroll */
-.elemento.mostrar {
-    opacity: 1; /* Mostrar elemento */
-    transform: translateY(0); /* Sin desplazamiento */
-}
+    @media (max-width: 768px) {
+        .grid {
+        grid-template-columns: repeat(1, 1fr); /* Cambiar a una sola columna en pantallas aún más pequeñas */
+    }
+    }
 
 </style>
