@@ -7,7 +7,6 @@ import { Icon } from 'astro-icon/components'
     
     <div class="container elemento">
         <h2>Habilidades</h2>
-        <p class="description">Competencias en diseño y desarrollo web, con experiencia en la creación de sitios interactivos y funcionales.</p>
         <div class="grid">
                 <div class="item">
                     <Icon name="html" />
@@ -18,28 +17,28 @@ import { Icon } from 'astro-icon/components'
                 </div >
                 <div class="item">
                     <Icon name="css" />
-                    <div>
+                    <div class="ctn">
                         <p class="title">CSS</p>
                         <p class="subtext">Hojas de estilo en cascada</p>
                     </div>
                 </div >
                 <div class="item">
                     <Icon name="js" />
-                    <div>
+                    <div class="ctn">
                         <p class="title">JavaScript</p>
                         <p class="subtext">lenguaje de programación compilado</p>
                     </div>
                 </div >
                 <div class="item">
                     <Icon name="react" />
-                    <div>
+                    <div class="ctn">
                         <p class="title">React + Vite</p>
                         <p class="subtext">Biblioteca para interfaces de usuario web</p>
                     </div>
                 </div >
                 <div class="item">
                     <Icon name="astro" />
-                    <div>
+                    <div class="ctn">
                         <p class="title">Astro</p>
                         <p class="subtext">Creador de sitios web estáticos y dinámicos</p>
                     </div>
@@ -53,21 +52,21 @@ import { Icon } from 'astro-icon/components'
                 </div >
                 <div class="item">
                     <Icon name="strapi" />
-                    <div>
+                    <div class="ctn">
                         <p class="title">Strapi</p>
                         <p class="subtext">CMS de código abierto para API y contenido</p>
                     </div>
                 </div >
                 <div class="item">
                     <Icon name="sql" />
-                    <div>
+                    <div class="ctn">
                         <p class="title">PostgreSQL</p>
                         <p class="subtext">Base de datos relacional</p>
                     </div>
                 </div >
                 <div class="item">
                     <Icon name="bootstrap" />
-                    <div>
+                    <div class="ctn">
                         <p class="title">Bootstrap</p>
                         <p class="subtext">Framework para diseño web responsivo</p>
                     </div>
@@ -81,14 +80,14 @@ import { Icon } from 'astro-icon/components'
                 </div >
                 <div class="item">
                     <Icon name="py" />
-                    <div>
+                    <div class="ctn"> 
                         <p class="title">Python</p>
                         <p class="subtext">Lenguaje de programación versátil</p>
                     </div>
                 </div >
                 <div class="item">
                     <Icon name="github" />
-                    <div>
+                    <div class="ctn">
                         <p class="title">GitHub</p>
                         <p class="subtext">plataforma para alojar y revisar código</p>
                     </div>
@@ -102,13 +101,14 @@ import { Icon } from 'astro-icon/components'
 
 <style>
     [data-icon]{
-        height: 3rem;
-        width: 3rem;
-        margin: 30px;
+        height: 48px;
+        width: 48px;
+        margin: 20px;
     }
 
     .ctn{
         margin-right: 20px;
+        width: 100%;
     }
 
     .subtext{
@@ -123,7 +123,7 @@ import { Icon } from 'astro-icon/components'
         margin-left: 10px;
         margin-bottom: 10px;
         width: 100%;
-        display: block;
+        
     }
 
     .item{
@@ -165,7 +165,6 @@ import { Icon } from 'astro-icon/components'
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 20px 20px;
-        margin-top: 3rem;
         margin-bottom: 5rem;
     }
     p{
@@ -180,12 +179,24 @@ import { Icon } from 'astro-icon/components'
         .grid {
         grid-template-columns: repeat(2, 1fr); /* Cambiar a dos columnas en pantallas más pequeñas */
     }
+
+        .container{
+            padding: 0 20px;
+        }
     }
 
     @media (max-width: 768px) {
         .grid {
         grid-template-columns: repeat(1, 1fr); /* Cambiar a una sola columna en pantallas aún más pequeñas */
     }
+
+    .container{
+            padding: 0 20px;
+        }
+
+        h2{
+            font-size: 3rem;
+        }
     }
 
 </style>

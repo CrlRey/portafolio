@@ -12,7 +12,8 @@ import arr from "../icon/arrow.svg";
         <a href={import.meta.env.LINKEDLN}><Icon name="linkedin" title="github" /></a>
         <a href={import.meta.env.GITHUB}><Icon name="githubFooter" title="ver" /></a>
     </div>
-    <span>Copyringht © - 2024 | Carlos Eduardo Cruz Reyes </span>
+    <span>Copyringht © - 2024</span>
+    <span class="name">Carlos Eduardo Cruz Reyes</span>
 </footer>
 
 <style>
@@ -48,6 +49,20 @@ import arr from "../icon/arrow.svg";
         font-family: 'Inter', sans-serif;
         color: #797878;
         font-weight: 700;
-        margin-top: 2rem;
+        margin-top: 1rem;
+    }
+
+    .name{
+        margin-top: .8rem;
+    }
+
+    @media (max-width: 1200px) {
+        
+    }
+
+    @media (max-width: 768px) {
+       span{
+        text-align: center;
+       }
     }
 </style>
