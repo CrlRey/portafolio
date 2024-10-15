@@ -1,66 +1,4 @@
----
-import { Image } from "astro:assets";
-import { Picture } from 'astro:assets';
-import ImgPrj1 from "../img/gastos.png";
-import { Icon } from "astro-icon/components";
-import MovieListComponent from "./proyectos/movieListComponent/MovieListComponent.astro";
-
----
-
-<section id="proyectos" class="elemento">
-    <div class="title">
-        <h2>Proyectos</h2>
-    </div>
-    <div class="center">
-        <div class="info">
-            <p class="type">Frontend</p>
-            <h3>Planificador de gastos</h3>
-            <p class="description" id="miParrafo">
-                Proyecto de control de gastos, visualiza como puedes tener un
-                control de tus gastos segmentados en diferentes categorias.
-            </p>
-            <div class="d-b">
-                <p class="tecno">React</p>
-                <p class="tecno">Vite</p>
-                <p class="tecno">JS</p>
-            </div>
-            <div class="flex-btn">
-                <a
-                    href={import.meta.env.PROJECT1}
-                    target="_blank"
-                    class="btn btn-ver enlace"
-                >
-                    <Icon name="arrow" />
-                    <span>Ver</span>
-                </a>
-                <a
-                    href={import.meta.env.GH1}
-                    target="_blank"
-                    class="btn btn-gh enlace"
-                >
-                    <Icon name="githubFooter" />
-                    <span>GitHub</span>
-                </a>
-            </div>
-        </div>
-        <div class="img-ctn">
-            <Picture
-            class="border-img"
-            src={ImgPrj1}
-            alt="Proyect1"
-            width="700"
-            height="360"
-            loading="eager"
-        />
-         </div>
-    </div>
-    <!-- Movie List -->
-    <MovieListComponent />
-</section>
-
-
-<style>
-    [data-icon] {
+[data-icon] {
     height: 1.5rem;
     width: 1.5rem;
     margin-right: 1rem;
@@ -271,5 +209,3 @@ h3 {
 
 }
 
-
-</style>
