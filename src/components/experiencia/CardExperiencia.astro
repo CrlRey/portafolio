@@ -1,0 +1,229 @@
+---
+const {item} = Astro.props
+import { Image } from "astro:assets";
+---
+
+<div class="center elemento">
+  <div class="card">
+      <div class="card-details">
+        <div class="img">
+          <Image
+            src={item.logo}
+            alt="imagen_profile"
+            loading="eager"
+            width="300"
+            height="100"
+          />
+        </div>
+        <div class="flex">
+          <p class="text-body">{item.title}</p>
+          <p class="text-body year">{item.year}</p>
+        </div>
+        <span class="line"></span>
+        <h3>Tareas principales</h3>
+        <div class="">
+          <ul>
+            <li>
+              <p>
+                
+                {item.task1}
+              </p>
+            </li>
+            <li>
+              <p>
+                {item.task2}
+              </p>
+            </li>
+            <li>
+              <p>
+                {item.task3}
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <style>
+    .center {
+      display: flex; /* Utilizamos flexbox */
+      flex-direction: column; /* Dirección de los items en columna */
+      justify-content: center; /* Centrado vertical */
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .year {
+      font-style: italic;
+    }
+    .position {
+      display: flex;
+      justify-content: space-around;
+      margin-left: 55%;
+    }
+
+    .img {
+      max-width: 100%; /* Asegura que la imagen no sobrepase su contenedor */
+      height: auto; /* Permite que la altura se ajuste automáticamente */
+    }
+
+    .flex {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    h3 {
+      font-family: "Inter", sans-serif;
+      color: #e5e0d8;
+      font-size: 1.6rem;
+      margin-bottom: 0px;
+    }
+
+    ul li {
+      list-style: square;
+      color: #e5e0d8;
+    }
+    ul li p {
+      font-style: italic;
+      font-family: "Inter", sans-serif;
+      color: #e5e0d8;
+      font-size: 1.2rem;
+    }
+    h2 {
+      text-align: left;
+      font-family: "Inter", sans-serif;
+      background: -webkit-linear-gradient(45deg, #0057f9, #00ff95 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 4rem;
+      margin-top: 100px;
+      word-wrap: inherit;
+    }
+
+   
+
+    .line {
+      border: 1px solid #444646;
+      width: 1199px;
+    }
+
+    /* CARD */
+    .card {
+      width: 1200px;
+      height: 500px;
+      border-radius: 20px;
+      background: #242525;
+      padding: 1.8rem;
+      border: 2px solid #444646;
+      transition: 0.5s ease-out;
+      overflow: visible;
+      margin-bottom: 100px;
+    }
+
+    .card-details {
+      font-family: "Inter", sans-serif;
+      color: black;
+      height: 100%;
+      gap: 0.5em;
+      display: grid;
+      place-content: start;
+    }
+
+    .text-body {
+      color: #e5e0d8;
+      font-size: 1.8rem;
+    }
+
+    /*Text*/
+
+    /*Hover*/
+    .card:hover {
+      border-color: #008bf8;
+      box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .card:hover .card-button {
+      transform: translate(-50%, 50%);
+      opacity: 1;
+    }
+
+    /* Tablet */
+    @media (max-width: 1200px) {
+      .center {
+        padding: 0 20px;
+        width: auto;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 3rem;
+      }
+
+      .card {
+        width: auto;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .grid {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card-details {
+        width: auto;
+      }
+
+      .line {
+        width: auto;
+      }
+    }
+    /* Celular */
+    @media (max-width: 768px) {
+      .center {
+        width: auto;
+        padding: 0 20px;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 3rem;
+      }
+
+      .card {
+        width: auto;
+        height: auto;
+      }
+
+      .line {
+        width: 100%;
+      }
+
+      .img {
+        width: 100%;
+        text-align: center;
+      }
+
+      .card-details {
+        height: auto;
+      }
+
+      .flex {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .grid {
+        flex-direction: column;
+        margin: 0;
+      }
+
+      h3 {
+        text-align: center;
+      }
+    }
+  </style>

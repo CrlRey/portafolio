@@ -2,96 +2,92 @@
 import Heading from "../components/Heading.astro";
 import About from "../components/About.astro";
 import Experiencia from "../components/Experiencia.astro";
-import Proyectos from '../components/Proyectos.astro';
-import Habilidades from '../components/Habilidades.astro';
-import Footer from '../components/Footer.astro';
+import Proyectos from "../components/Proyectos.astro";
+import Habilidades from "../components/Habilidades.astro";
+import Footer from "../components/Footer.astro";
+import SliderCard from "../components/sliderCard.astro";
+
 const { title, description } = Astro.props;
-
-
-
-
 ---
 
 <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
-        />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
-        <meta name="description" content={description} />
-    </head>
-    <body>
-    
-        <Heading />
-        <About />
-        <Experiencia />
-        <Proyectos />
-        <Habilidades />
-        <Footer />
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <Heading />
+    <About />
+    <Experiencia />
+    <Proyectos />
+    <Habilidades />
+    <Footer />
 
-        <script>
-          function checkElementsInView() {
-          const elementos = document.querySelectorAll('.elemento');
-          
-          elementos.forEach(elemento => {
-              if (isElementInViewport(elemento)) {
-                  elemento.classList.add('mostrar');
-              }else {
-                  elemento.classList.remove('mostrar'); // Eliminar la clase si el elemento ya no está en el viewport
-              }
-          });
+    <script>
+      function checkElementsInView() {
+        const elementos = document.querySelectorAll(".elemento");
+
+        elementos.forEach((elemento) => {
+          if (isElementInViewport(elemento)) {
+            elemento.classList.add("mostrar");
+          } else {
+            elemento.classList.remove("mostrar"); // Eliminar la clase si el elemento ya no está en el viewport
+          }
+        });
       }
-      
-        function isElementInViewport(el) {
-          const rect = el.getBoundingClientRect();
-          const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
-          return (
-          rect.top <= windowHeight && rect.bottom >= 0
-          );
-        }
-      
-        window.addEventListener('load', checkElementsInView);
-        window.addEventListener('scroll', checkElementsInView);
-      </script>
 
+      function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        const windowHeight =
+          window.innerHeight || document.documentElement.clientHeight;
+        return rect.top <= windowHeight && rect.bottom >= 0;
+      }
 
-    </body>
+      window.addEventListener("load", checkElementsInView);
+      window.addEventListener("scroll", checkElementsInView);
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"
+    ></script>
+  </body>
 </html>
 
 <style is:global>
+  html,
+  body {
+    background-color: #242525;
+    height: 100%;
+  }
 
-    
+  html::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+  }
 
-    html, body{
-      background-color: #242525;
-      height: 100%;
-      
-    }
-
-    html::-webkit-scrollbar-thumb{
-      border-radius: 4px;
-    }
-
-    .elemento {
+  .elemento {
     opacity: 0; /* Inicialmente invisibles */
     transform: translateY(20px); /* Desplazados hacia abajo */
-    transition: opacity 0.5s, transform 0.5s; /* Transición suave */
-    }
+    transition:
+      opacity 0.5s,
+      transform 0.5s; /* Transición suave */
+  }
 
   /* Estilo para mostrar los elementos al hacer scroll */
-    .elemento.mostrar {
+  .elemento.mostrar {
     opacity: 1; /* Mostrar elemento */
     transform: translateY(0); /* Sin desplazamiento */
-    }
+  }
 </style>

@@ -1,0 +1,140 @@
+---
+import localImg from '../img/img_footer.png'
+import { Image } from "astro:assets";
+---
+
+<section id="slider">
+   
+   <div class="center elemento">
+     <swiper-container>
+         <swiper-slide>
+             <div class="card">
+                 <div class="card-details">
+                     <div  class="img">
+                         <Image src={localImg}
+                     alt="imagen_profile"
+                     loading="eager"
+                     width="300"
+                     height="100"/>
+                     </div>
+                     <div class="flex">
+                         <p class="text-body">Ingeniero de soporte técnico</p>
+                         <p class="text-body year">199</p>
+                         </div>
+                     </div>
+                     <span class="line"></span>
+                 <h3>Tareas principales</h3>
+                 <div class="grid">
+                     <ul>
+                         <li>
+                             <p>Proporcionar soporte técnico a usuarios y usuarias y solucionar problemas de TI.</p>
+                         </li>
+                         <li>
+                             <p>Configurar y dar mantenimiento a equipos informáticos.</p>
+                                 
+                         </li>
+                         <li>
+                             <p>Instalación de equipo de redes y CCTV.</p>
+                         </li>
+                         <li>
+                             <p>Instalar y actualizar software y hardware.</p>
+                         </li>
+                     </ul>
+                     <ul>
+                         <li>
+                             <p>Apoyo en la instalación de cableado estructurado.</p>
+                             
+                         </li>
+                         <li>
+                             <p>Instalación de software antivirus Acronis.</p>
+                                 
+                         </li>
+                         <li>
+                             <p>Brindar soporte en equipos de fotocopiado.</p>
+                         </li>
+                         <li>
+                             <p>Administración de cuentas con Office 365.</p>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+         </swiper-slide>
+         <swiper-slide>
+             <div class="card">
+    
+             </div>
+         </swiper-slide>
+         <swiper-slide>Slide 3</swiper-slide>
+         ...
+       </swiper-container>
+   </div>
+      
+</section>
+
+<style>
+
+
+.flex{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .line{
+        border: 1px solid #444646;
+        width: 1199px;
+    }
+
+    .year{
+        font-style: italic;
+    }
+    .position{
+        display: flex;
+        justify-content: space-around;
+        margin-left: 55%;
+    }
+
+     .card {
+        width: 1200px;
+        height: 500px;
+        border-radius: 20px;
+        background: #242525;
+        padding: 1.8rem;
+        border: 2px solid #444646;
+        transition: 0.5s ease-out;
+        overflow: visible;
+        margin-bottom: 100px;
+    }
+
+    .card-details {
+        font-family: 'Inter', sans-serif;
+        color: black;
+        height: 100%;
+        gap: 0.5em;
+        display: grid;
+        place-content: start;
+    }
+
+    .text-body {
+        color: #e5e0d8;
+        font-size: 1.8rem;
+    }
+
+    /*Text*/
+    
+
+    /*Hover*/
+    .card:hover {
+        border-color: #008bf8;
+        box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .card:hover .card-button {
+        transform: translate(-50%, 50%);
+        opacity: 1;
+    }
+</style>
